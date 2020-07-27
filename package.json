@@ -1,0 +1,49 @@
+{
+  "name": "@4ir/akira-mon",
+  "version": "1.0.0",
+  "description": "Akira-Mon is an file integrity tool. It allows you to monitor file for Create, Delete and Modify Event",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "grunt",
+    "lint": "grunt lint",
+    "compile": "npm run compile:linux & npm run compile:windows & npm run compile:osx",
+    "compile:linux": "rimraf bin/linux && mkdirp bin/linux && nexe -i dist/app.js -t linux-x64-10.15.3 -o bin/linux/akira-mon",
+    "compile:windows": "rimraf bin/windows && mkdirp bin/windows && nexe -i dist/app.js -t windows-x64-10.15.3 -o bin/windows/akira-mon.exe",
+    "compile:osx": "rimraf bin/osx && mkdirp bin/osx && nexe -i dist/app.js -t mac-x64-10.15.3 -o bin/osx/akira-mon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/4ir/akira-mon.git"
+  },
+  "keywords": [
+    "4ir",
+    "research labs",
+    "file integerity",
+    "akira-mon",
+    "file-changes",
+    "monitor"
+  ],
+  "author": "4 IR",
+  "license": "GPL-3.0-only",
+  "homepage": "https://bitbucket.org/4ir/akira-mon#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@types/lodash": "^4.14.132",
+    "@types/node": "^12.0.2",
+    "grunt": "^1.0.4",
+    "grunt-babel": "^8.0.0",
+    "grunt-cli": "^1.3.2",
+    "grunt-eslint": "^21.0.0",
+    "nexe": "^3.2.0"
+  },
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "ascii-table": "0.0.9",
+    "directory-watcher": "^2.0.3",
+    "lodash": "^4.17.11",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.3"
+  }
+}
